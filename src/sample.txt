@@ -1,0 +1,4 @@
+this is a text file
+here is another line
+is every character...
+equal to one byte??
