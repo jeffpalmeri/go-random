@@ -7,7 +7,6 @@ type BST struct {
 	left *BST
 	right *BST
 }
-
 // func PostOrderTraversal(root *BST, values []int) []int{
 // 	fmt.Println("PostOrderTraversal")
 // 	if root == nil {
@@ -22,6 +21,7 @@ type BST struct {
 
 
 func TryingIterativeTraversal(root *BST, values []int) []int {
+  // commenttttt
 	stack := make([]*BST, 0)
 	stack = append(stack, root)
 	for len(stack) > 0 {
@@ -147,3 +147,55 @@ func (root *BST) InsertRecursive(node *BST) {
 	}
 	// return root
 }
+
+
+// This is the struct of the input root. Do not edit it.
+type BinaryTree struct {
+	Value int
+	Left  *BinaryTree
+	Right *BinaryTree
+}
+
+// func BranchSums(root *BinaryTree) []int {
+//     sums := []int{}
+//     currentSum := 0;
+//     return recurse(root, sums, currentSum)
+// }
+
+// func recurse(node *BinaryTree, sums []int, currentSum int) []int {
+//    fmt.Println("Recursing") 
+    
+//     if node.Left != nil {
+//         sums = recurse(node.Left, sums, currentSum + node.Value)
+//     } else {
+//         sums = append(sums, currentSum + node.Value)
+//         return sums
+//     }
+//     if node.Right != nil {
+//         sums = recurse(node.Right, sums, currentSum + node.Value)
+//     } else {
+//         sums = append(sums, currentSum + node.Value)
+//         return sums
+//     }
+//     return sums
+// } 
+func BranchSums(root *BinaryTree) []int {
+	sums := []int{}
+	currentSum := 0;
+	return recurse(root, sums, currentSum)
+}
+
+func recurse(node *BinaryTree, sums []int, currentSum int) []int {
+ fmt.Println("Recursing") 
+ if node == nil {
+		 return sums
+ } 
+	
+	if node.Left == nil && node.Right == nil {
+			sums = append(sums, currentSum + node.Value)
+	} else {
+			sums = recurse(node.Left, sums, currentSum + node.Value)
+			sums = recurse(node.Right, sums, currentSum + node.Value)
+	}
+	return sums
+} 
