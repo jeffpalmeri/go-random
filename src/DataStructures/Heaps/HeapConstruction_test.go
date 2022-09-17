@@ -38,7 +38,7 @@ func (h *MinHeap) siftDown(currentIdx, endIdx int) {
 	// If not, ignore it and only use child one
 	for childOneIdx <= endIdx {
 		//		fmt.Println("in while: ", childOneIdx, childTwoIdx, currentIdx, (*h)[currentIdx], *h)
-	childTwoIdx := -1
+		childTwoIdx := -1
 		if currentIdx*2+2 <= endIdx {
 			childTwoIdx = currentIdx*2 + 2
 		}
